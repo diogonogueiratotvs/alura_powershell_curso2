@@ -18,10 +18,10 @@ $pacotesSemParam = @(
     [pscustomobject]@{Nome='whatsapp'}
 )
 
-# $pacotesComParam = @(
-# [pscustomobject]@{Nome='office2019proplus';Param='/ConfigPath:https://raw.githubusercontent.com/dsbnogueira/deployment_tools/main/deployment_office2019.xml'}
-# [pscustomobject]@{Nome='adobereader';Param='"/DesktopIcon /UpdateMode:4"'}
-# )
+$pacotesComParam = @(
+[pscustomobject]@{Nome='office2019proplus';Param='/ConfigPath:https://raw.githubusercontent.com/dsbnogueira/deployment_tools/main/deployment_office2019.xml'}
+[pscustomobject]@{Nome='adobereader';Param='"/DesktopIcon /UpdateMode:4"'}
+)
 
 foreach ($i in $pacotesSemParam){
     #Addlog -type Information -message "Instalando"+$i.Nome
@@ -30,5 +30,8 @@ foreach ($i in $pacotesSemParam){
     Write-Host $i.Nome
 }
 
+foreach ($p in $pacotesComParam){
+    Write-Host 'choco install' $p.Nome'-Param' $p.Param '--y --force'
+}
 
 
