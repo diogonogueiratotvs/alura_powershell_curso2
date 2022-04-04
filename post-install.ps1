@@ -1,12 +1,8 @@
 #script que baixará e instalará os pacotes necessários para automação da máquina.
 
 #instalação do Chocolatey
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
 Set-ExecutionPolicy Bypass -Scope Process -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-AddLog -type Information -message "Fim do processo de instalacao do chocolatey"
-
 
 #pacotes sem params
 $pacotesSemParam = @(
